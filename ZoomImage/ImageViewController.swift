@@ -2,12 +2,20 @@ import UIKit
 
 class ImageViewController: UIViewController, UIScrollViewDelegate {
 
-    var image: UIImage?
+    var imageUrl: URL?  // Add a property to store the URL
     
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.clipsToBounds = false
         return scrollView
+    }()
+    
+    let activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.hidesWhenStopped = true
+        return activityIndicator
     }()
     
     let imageView: UIImageView = {
@@ -17,15 +25,22 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
         return imageView
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.showNavigationBar()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         
         view.addSubview(scrollView)
         scrollView.addSubview(imageView)
+        view.addSubview(activityIndicator)
         
-        let safeGuide = view.safeAreaLayoutGuide
+        let safeGuide = view.safeAreaLayoutGuide  // Use safeAreaLayoutGuide
+        
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: safeGuide.topAnchor, constant: 0),
             scrollView.leadingAnchor.constraint(equalTo: safeGuide.leadingAnchor, constant: 0),
@@ -37,10 +52,26 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
             imageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0),
             imageView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0),
             imageView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 1),
-            imageView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: 1)
+            imageView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: 1),
+            
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
-        imageView.image = image
+        activityIndicator.startAnimating()
+        
+        if let imageUrl = imageUrl {
+            // Load the image asynchronously from the provided URL
+            DispatchQueue.global().async {
+                if let imageData = try? Data(contentsOf: imageUrl), let image = UIImage(data: imageData) {
+                    DispatchQueue.main.async {
+                        self.activityIndicator.stopAnimating()
+                        self.imageView.image = image
+                    }
+                }
+            }
+        }
+        
         scrollView.delegate = self
         
         scrollView.maximumZoomScale = 5.0
@@ -73,3 +104,4 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
         return imageView
     }
 }
+

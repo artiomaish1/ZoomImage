@@ -10,6 +10,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let viewController = ViewController()
         self.window?.rootViewController = UINavigationController(rootViewController: viewController)
         self.window?.makeKeyAndVisible()
+        
         return true
     }
 }
+
