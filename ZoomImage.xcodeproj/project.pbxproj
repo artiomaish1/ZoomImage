@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		923B7EB42AD449B300D20301 /* GreetingsURLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B7EB32AD449B300D20301 /* GreetingsURLModel.swift */; };
+		92D29CF82AD493E7005F0657 /* GreetingsURLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D29CF72AD493E7005F0657 /* GreetingsURLView.swift */; };
+		92D29CFA2AD49589005F0657 /* ZoomedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D29CF92AD49589005F0657 /* ZoomedImageView.swift */; };
+		92D29CFF2AD49985005F0657 /* ZommedImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D29CFE2AD49985005F0657 /* ZommedImageModel.swift */; };
 		92E2B2B32AAA312400BC3982 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2B2B22AAA312400BC3982 /* AppDelegate.swift */; };
-		92E2B2B72AAA312400BC3982 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2B2B62AAA312400BC3982 /* ViewController.swift */; };
+		92E2B2B72AAA312400BC3982 /* GreetingsURLController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2B2B62AAA312400BC3982 /* GreetingsURLController.swift */; };
 		92E2B2BC2AAA312500BC3982 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92E2B2BB2AAA312500BC3982 /* Assets.xcassets */; };
 		92E2B2BF2AAA312500BC3982 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E2B2BD2AAA312500BC3982 /* LaunchScreen.storyboard */; };
-		92E2B2C92AAA317D00BC3982 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2B2C82AAA317D00BC3982 /* ImageViewController.swift */; };
+		92E2B2C92AAA317D00BC3982 /* ZoomedImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2B2C82AAA317D00BC3982 /* ZoomedImageController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		923B7EB32AD449B300D20301 /* GreetingsURLModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsURLModel.swift; sourceTree = "<group>"; };
+		92D29CF72AD493E7005F0657 /* GreetingsURLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsURLView.swift; sourceTree = "<group>"; };
+		92D29CF92AD49589005F0657 /* ZoomedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedImageView.swift; sourceTree = "<group>"; };
+		92D29CFE2AD49985005F0657 /* ZommedImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZommedImageModel.swift; sourceTree = "<group>"; };
 		92E2B2AF2AAA312400BC3982 /* ZoomImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZoomImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E2B2B22AAA312400BC3982 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		92E2B2B62AAA312400BC3982 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		92E2B2B62AAA312400BC3982 /* GreetingsURLController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsURLController.swift; sourceTree = "<group>"; };
 		92E2B2BB2AAA312500BC3982 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92E2B2BE2AAA312500BC3982 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92E2B2C02AAA312500BC3982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		92E2B2C82AAA317D00BC3982 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		92E2B2C82AAA317D00BC3982 /* ZoomedImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedImageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +43,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92D29CFB2AD49889005F0657 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				92D29CF92AD49589005F0657 /* ZoomedImageView.swift */,
+				92D29CF72AD493E7005F0657 /* GreetingsURLView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		92D29CFC2AD498AC005F0657 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				923B7EB32AD449B300D20301 /* GreetingsURLModel.swift */,
+				92D29CFE2AD49985005F0657 /* ZommedImageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		92D29CFD2AD498BB005F0657 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				92E2B2B62AAA312400BC3982 /* GreetingsURLController.swift */,
+				92E2B2C82AAA317D00BC3982 /* ZoomedImageController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		92E2B2A62AAA312400BC3982 = {
 			isa = PBXGroup;
 			children = (
@@ -55,8 +90,9 @@
 			isa = PBXGroup;
 			children = (
 				92E2B2B22AAA312400BC3982 /* AppDelegate.swift */,
-				92E2B2B62AAA312400BC3982 /* ViewController.swift */,
-				92E2B2C82AAA317D00BC3982 /* ImageViewController.swift */,
+				92D29CFC2AD498AC005F0657 /* Model */,
+				92D29CFB2AD49889005F0657 /* Views */,
+				92D29CFD2AD498BB005F0657 /* Controllers */,
 				92E2B2BB2AAA312500BC3982 /* Assets.xcassets */,
 				92E2B2BD2AAA312500BC3982 /* LaunchScreen.storyboard */,
 				92E2B2C02AAA312500BC3982 /* Info.plist */,
@@ -133,9 +169,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92E2B2B72AAA312400BC3982 /* ViewController.swift in Sources */,
+				92E2B2B72AAA312400BC3982 /* GreetingsURLController.swift in Sources */,
+				923B7EB42AD449B300D20301 /* GreetingsURLModel.swift in Sources */,
 				92E2B2B32AAA312400BC3982 /* AppDelegate.swift in Sources */,
-				92E2B2C92AAA317D00BC3982 /* ImageViewController.swift in Sources */,
+				92E2B2C92AAA317D00BC3982 /* ZoomedImageController.swift in Sources */,
+				92D29CFA2AD49589005F0657 /* ZoomedImageView.swift in Sources */,
+				92D29CFF2AD49985005F0657 /* ZommedImageModel.swift in Sources */,
+				92D29CF82AD493E7005F0657 /* GreetingsURLView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
