@@ -15,7 +15,7 @@ class GreetingViewElements {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-   
+    
     let spinner: UIActivityIndicatorView = {
         let imageDownloading = UIActivityIndicatorView(style: .large)
         imageDownloading.translatesAutoresizingMaskIntoConstraints = false

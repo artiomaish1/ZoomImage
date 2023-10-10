@@ -13,7 +13,6 @@ class ViewController: UIViewController, GreetingView {
         
         view.backgroundColor = .black
         viewElements.setupConstraints(in: view)
-        
         viewElements.changeImage.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         viewElements.imageContainerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openImage)))
         
