@@ -46,8 +46,8 @@
 		92D29CFB2AD49889005F0657 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				92D29CF92AD49589005F0657 /* ZoomedImageView.swift */,
 				92D29CF72AD493E7005F0657 /* GreetingsURLView.swift */,
+				92D29CF92AD49589005F0657 /* ZoomedImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

@@ -1,10 +1,10 @@
 import UIKit
 
-class GreetingViewElements {
+class GreetingsURLView: UIView {
     let greetingLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = .white
+        label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -40,13 +40,15 @@ class GreetingViewElements {
     let notFoundLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = .white
+        label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Not Found"
         return label
     }()
     
     func setupConstraints(in view: UIView) {
+        view.backgroundColor = .white
+        
         view.addSubview(greetingLabel)
         view.addSubview(imageContainerView)
         view.addSubview(changeImage)
@@ -82,4 +84,25 @@ class GreetingViewElements {
             notFoundLabel.centerYAnchor.constraint(equalTo: imageContainerView.centerYAnchor),
         ])
     }
-}
+    
+    func updateGreetingLabel(withText text: String) {
+            greetingLabel.text = text
+        }
+        
+        func updateImageView(withImage image: UIImage?) {
+            imageView.image = image
+        }
+        
+        func showSpinner() {
+            spinner.startAnimating()
+        }
+        
+        func hideSpinner() {
+            spinner.stopAnimating()
+        }
+        
+        func showNotFoundLabel(_ show: Bool) {
+            notFoundLabel.isHidden = !show
+        }
+    }
+
