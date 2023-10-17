@@ -1,58 +1,55 @@
 import UIKit
+import Foundation
 
 class GreetingsURLController: UIViewController {
-    var model: GreetingModel!
-    var viewElements: GreetingsURLView!
+    private var model: GreetingsModelable
+    private let greetingsUrlView: GreetingsURLView
+
+    init(model: GreetingModel, greetingsUrlView: GreetingsURLView) {
+        self.model = model
+        self.greetingsUrlView = greetingsUrlView
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
+    
+    override func loadView() {
+        self.view = greetingsUrlView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewElements = GreetingsURLView()
-        viewElements.setupConstraints(in: view)
-        viewElements.changeImage.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        viewElements.imageContainerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openImage)))
-        
-        model = GreetingModel()
+
+        greetingsUrlView.setupConstraints(in: view)
+        greetingsUrlView.configureChangeImageTarget(target: self, action: #selector(buttonTapped))
+        greetingsUrlView.configureImageContainerGestureRecognizer(target: self, action: #selector(openImage))
+
         updateUI()
     }
-    
-    func updateUI() {
-        let greetingText = model.currentGreeting()
-        viewElements.updateGreetingLabel(withText: greetingText)
-        
-        let imageUrl = model.currentImageUrl()
-        viewElements.updateImageView(withImage: nil)
-        viewElements.showSpinner()
-        viewElements.showNotFoundLabel(false)
-        
-        downloadImage(from: imageUrl)
-    }
-    
-    private func downloadImage(from url: URL) {
-        URLSession.shared.dataTask(with: URLRequest(url: url, timeoutInterval: 10.0)) { [weak self] data, _, _ in
+
+    private func updateUI() {
+        greetingsUrlView.showSpinner()
+        greetingsUrlView.showNotFoundLabel(false)
+
+        model.updateUI { [weak self] in
             guard let this = self else { return }
-            DispatchQueue.main.async {
-                this.viewElements.hideSpinner()
-                if let data, let image = UIImage(data: data) {
-                    this.viewElements.updateImageView(withImage: image)
-                } else {
-                    this.viewElements.showNotFoundLabel(true)
-                }
-            }
-        }.resume()
+            let greetingText = this.model.currentGreeting
+            this.greetingsUrlView.updateGreetingLabel(withText: greetingText)
+            this.greetingsUrlView.hideSpinner()
+        }
     }
-    
+
     @objc func buttonTapped() {
         model.nextGreeting()
         updateUI()
     }
-    
+
     @objc func openImage() {
-        let imageModel = model.imageModel
+        let imageModel = (model as GreetingsModelable).createImageModel()
         let imageViewController = ZoomedImageController(zoomedImageView: ZoomedImageView(), imageModel: imageModel)
         navigationController?.pushViewController(imageViewController, animated: true)
     }
 }
-
-
-
