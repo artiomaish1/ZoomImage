@@ -7,11 +7,11 @@ protocol ImageModelabel {
 
 struct ImageModel: ImageModelabel {
     private let imageUrl: URL?
-    
+
     init(imageUrl: URL?) {
         self.imageUrl = imageUrl
     }
-    
+
     func getImage(_ completion: @escaping((UIImage?) -> Void)) {
         if let imageUrl {
             DispatchQueue.global().async {
@@ -30,4 +30,3 @@ struct ImageModel: ImageModelabel {
         }
     }
 }
-

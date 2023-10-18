@@ -14,8 +14,7 @@ class GreetingsURLController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
+
     override func loadView() {
         self.view = greetingsUrlView
     }

@@ -13,63 +13,62 @@ class ZoomedImageView: UIView, UIScrollViewDelegate, ZoomedImageInteractive {
         scrollView.clipsToBounds = false
         return scrollView
     }()
-    
+
     private let activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.hidesWhenStopped = true
         return activityIndicator
     }()
-    
+
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupConstraints()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func setupConstraints() {
         backgroundColor = .black
-        
+
         scrollView.delegate = self
         scrollView.maximumZoomScale = 5.0
-        
+
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleTap))
         doubleTapGesture.numberOfTapsRequired = 2
         scrollView.addGestureRecognizer(doubleTapGesture)
-        
+
         self.addSubview(scrollView)
         scrollView.addSubview(imageView)
         self.addSubview(activityIndicator)
-        
+
         let safeGuide = self.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: safeGuide.topAnchor, constant: 0),
             scrollView.leadingAnchor.constraint(equalTo: safeGuide.leadingAnchor, constant: 0),
             scrollView.trailingAnchor.constraint(equalTo: safeGuide.trailingAnchor, constant: 0),
             scrollView.bottomAnchor.constraint(equalTo: safeGuide.bottomAnchor, constant: 0),
-            
+
             imageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0),
             imageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0),
             imageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0),
             imageView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0),
             imageView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 1),
             imageView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: 1),
-            
+
             activityIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
     }
-
 
 @objc private func doubleTap(sender: UITapGestureRecognizer) {
     if scrollView.zoomScale == 1 {
@@ -95,7 +94,7 @@ func viewForZooming(in scrollView: UIScrollView) -> UIView? {
 }
 
 func setSpinnerAnimating(_ animating: Bool) {
-    if animating{
+    if animating {
         self.activityIndicator.startAnimating()
     } else {
         self.activityIndicator.stopAnimating()

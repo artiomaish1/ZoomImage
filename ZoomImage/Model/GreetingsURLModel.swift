@@ -25,26 +25,26 @@ struct GreetingModel: GreetingsModelable {
     ]
     var currentIndex: Int = 0
     var currentImageIndex: Int = 0
-    
+
     weak var delegate: GreetingModelDelegate?
-    
+
     var currentGreeting: String {
         return greetings[currentIndex]
     }
-    
+
     var currentImageUrl: URL {
         return imageUrls[currentImageIndex]
     }
-    
+
     mutating func nextGreeting() {
         currentIndex = (currentIndex + 1) % greetings.count
         currentImageIndex = (currentImageIndex + 1) % imageUrls.count
     }
-    
+
     mutating func nextImage() {
         currentImageIndex = (currentImageIndex + 1) % imageUrls.count
     }
-    
+
     func downloadImage(completion: @escaping (UIImage?) -> Void) {
         URLSession.shared.dataTask(with: URLRequest(url: currentImageUrl, timeoutInterval: 10.0)) { data, _, _ in
             if let data = data, let image = UIImage(data: data) {
@@ -54,11 +54,11 @@ struct GreetingModel: GreetingsModelable {
             }
         }.resume()
     }
-    
+
     func updateUI(completion: @escaping () -> Void) {
-        let greetingText = currentGreeting
+
         let imageUrl = currentImageUrl
-        
+
         downloadImage(from: imageUrl) { image in
             completion()
             if let image = image {
@@ -66,9 +66,9 @@ struct GreetingModel: GreetingsModelable {
             }
         }
     }
-    
+
     private func downloadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
-        
+
         URLSession.shared.dataTask(with: URLRequest(url: url, timeoutInterval: 10.0)) { data, _, _ in
             if let data = data, let image = UIImage(data: data) {
                 completion(image)

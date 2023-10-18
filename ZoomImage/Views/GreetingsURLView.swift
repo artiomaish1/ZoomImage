@@ -47,6 +47,15 @@ class GreetingsURLView: UIView {
         return label
     }()
 
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        self.setupConstraints()
+//    }
+//    
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+
     func setupConstraints(in view: UIView) {
         view.backgroundColor = .white
 
@@ -82,7 +91,7 @@ class GreetingsURLView: UIView {
             spinner.centerYAnchor.constraint(equalTo: imageContainerView.centerYAnchor),
 
             notFoundLabel.centerXAnchor.constraint(equalTo: imageContainerView.centerXAnchor),
-            notFoundLabel.centerYAnchor.constraint(equalTo: imageContainerView.centerYAnchor),
+            notFoundLabel.centerYAnchor.constraint(equalTo: imageContainerView.centerYAnchor)
         ])
     }
 
@@ -113,5 +122,4 @@ class GreetingsURLView: UIView {
     func showNotFoundLabel(_ show: Bool) {
         notFoundLabel.isHidden = !show
     }
-    
 }
