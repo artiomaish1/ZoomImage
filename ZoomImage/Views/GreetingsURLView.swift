@@ -7,6 +7,8 @@ class GreetingsURLView: UIView {
         label.textAlignment = .center
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.setContentHuggingPriority(.defaultLow, for: .vertical)
+        label.setContentCompressionResistancePriority(.required, for: .vertical)
         return label
     }()
 
@@ -47,34 +49,34 @@ class GreetingsURLView: UIView {
         return label
     }()
 
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        self.setupConstraints()
-//    }
-//    
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.setupConstraints()
+    }
 
-    func setupConstraints(in view: UIView) {
-        view.backgroundColor = .white
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
-        view.addSubview(greetingLabel)
-        view.addSubview(imageContainerView)
-        view.addSubview(changeImage)
+    func setupConstraints() {
+        self.backgroundColor = .white
+
+        self.addSubview(greetingLabel)
+        self.addSubview(imageContainerView)
+        self.addSubview(changeImage)
         imageContainerView.addSubview(imageView)
         imageContainerView.addSubview(notFoundLabel)
         imageContainerView.addSubview(spinner)
 
-        let safeGuide = view.safeAreaLayoutGuide
+        let safeGuide = self.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             greetingLabel.topAnchor.constraint(equalTo: safeGuide.topAnchor, constant: 10),
             greetingLabel.leadingAnchor.constraint(equalTo: safeGuide.leadingAnchor, constant: 10),
             greetingLabel.trailingAnchor.constraint(equalTo: safeGuide.trailingAnchor, constant: -10),
 
             imageContainerView.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor, constant: 10),
-            imageContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            imageContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            imageContainerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            imageContainerView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             imageContainerView.bottomAnchor.constraint(equalTo: changeImage.topAnchor, constant: -10),
 
             imageView.topAnchor.constraint(equalTo: imageContainerView.topAnchor),

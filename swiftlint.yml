@@ -12,7 +12,7 @@ opt_in_rules:
 disabled_rules:
   - anonymous_argument_in_multiline_closure
   - anyobject_protocol
-  - closure_body_length
+#  - closure_body_length
   - conditional_returns_on_newline
   - convenience_type
   - discouraged_optional_collection
@@ -21,11 +21,11 @@ disabled_rules:
   - explicit_top_level_acl
   - explicit_type_interface
   - file_types_order
-  - force_unwrapping
+#  - force_unwrapping
   - function_default_parameter_at_end
   - implicit_return
-  - implicitly_unwrapped_optional
-  - indentation_width
+#  - implicitly_unwrapped_optional
+#  - indentation_width
   - inert_defer
   - missing_docs
   - multiline_arguments
@@ -37,7 +37,7 @@ disabled_rules:
   - no_extension_access_modifier
   - no_fallthrough_only
   - no_grouping_extension
-  - no_magic_numbers
+#  - no_magic_numbers
   - prefer_nimble
   - prefer_self_in_static_references
   - prefixed_toplevel_constant
@@ -51,8 +51,8 @@ disabled_rules:
   - todo
   - trailing_closure
   - type_contents_order
-  - unused_capture_list
-  - vertical_whitespace_between_cases
+#  - unused_capture_list
+#  - vertical_whitespace_between_cases
 
 attributes:
   always_on_line_above:

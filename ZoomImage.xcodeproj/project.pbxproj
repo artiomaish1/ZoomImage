@@ -107,10 +107,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92E2B2C32AAA312500BC3982 /* Build configuration list for PBXNativeTarget "ZoomImage" */;
 			buildPhases = (
-				92A149E52ADF58150039750C /* ShellScript */,
 				92E2B2AB2AAA312400BC3982 /* Sources */,
 				92E2B2AC2AAA312400BC3982 /* Frameworks */,
 				92E2B2AD2AAA312400BC3982 /* Resources */,
+				92A149E52ADF58150039750C /* ShellScript */,
 			);
 			buildRules = (
 			);

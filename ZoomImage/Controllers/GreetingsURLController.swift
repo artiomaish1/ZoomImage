@@ -22,7 +22,6 @@ class GreetingsURLController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        greetingsUrlView.setupConstraints(in: view)
         greetingsUrlView.configureChangeImageTarget(target: self, action: #selector(buttonTapped))
         greetingsUrlView.configureImageContainerGestureRecognizer(target: self, action: #selector(openImage))
 
@@ -33,21 +32,22 @@ class GreetingsURLController: UIViewController {
         greetingsUrlView.showSpinner()
         greetingsUrlView.showNotFoundLabel(false)
 
-        model.updateUI { [weak self] in
+        model.downloadImage { [weak self] image in
             guard let this = self else { return }
             let greetingText = this.model.currentGreeting
             this.greetingsUrlView.updateGreetingLabel(withText: greetingText)
+            this.greetingsUrlView.updateImageView(withImage: image)
             this.greetingsUrlView.hideSpinner()
         }
     }
 
     @objc func buttonTapped() {
-        model.nextGreeting()
+        model.nextGreetingURL()
         updateUI()
     }
 
     @objc func openImage() {
-        let imageModel = (model as GreetingsModelable).createImageModel()
+        let imageModel = ImageModel(imageUrl: model.currentImageUrl)
         let imageViewController = ZoomedImageController(zoomedImageView: ZoomedImageView(), imageModel: imageModel)
         navigationController?.pushViewController(imageViewController, animated: true)
     }
