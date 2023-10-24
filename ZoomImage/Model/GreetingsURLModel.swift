@@ -10,14 +10,14 @@ protocol GreetingsModelable {
 
 struct GreetingModel: GreetingsModelable {
 
-    let greetings: [String] = ["Привет", "Hello", "Bonjour", "Hola", "Ciao"]
+    private let greetings: [String] = ["Привет", "Hello", "Bonjour", "Hola", "Ciao"]
     let imageUrls: [URL] = [
         URL(string: "https://images2.alphacoders.com/576/576627.jpg")!,
         URL(string: "https://wallpaperaccess.com/full/7316.jpg")!,
         URL(string: "https://images.hdqwalls.com/wallpapers/dota-2-templar-assassin-cosmetic-set-4k-mg.jpg")!
     ]
-    var currentIndex: Int = 0
-    var currentImageIndex: Int = 0
+    private var currentIndex: Int = 0
+    private var currentImageIndex: Int = 0
 
     var currentGreeting: String {
         return greetings[currentIndex]
@@ -44,7 +44,7 @@ struct GreetingModel: GreetingsModelable {
         }.resume()
     }
 
-    func createImageModel() -> ImageModel {
+    private func createImageModel() -> ImageModel {
         return ImageModel(imageUrl: currentImageUrl)
     }
 }

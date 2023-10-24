@@ -1,8 +1,17 @@
 import UIKit
 import Foundation
 
-class GreetingsURLView: UIView {
-    let greetingLabel: UILabel = {
+protocol GreetingsURLInterective: UIView {
+    func setSpinnerAnimating(_ animating: Bool)
+    func updateImageView(withImage image: UIImage?)
+    func configureChangeImageTarget(target: Any, action: Selector)
+    func configureImageContainerGestureRecognizer(target: Any, action: Selector)
+    func showNotFoundLabel(_ show: Bool)
+    func updateGreetingLabel(withText text: String)
+}
+
+class GreetingsURLView: UIView, GreetingsURLInterective {
+    private let greetingLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .black
@@ -12,26 +21,26 @@ class GreetingsURLView: UIView {
         return label
     }()
 
-    let imageView: UIImageView = {
+    private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
-    let spinner: UIActivityIndicatorView = {
+    private let spinner: UIActivityIndicatorView = {
         let imageDownloading = UIActivityIndicatorView(style: .large)
         imageDownloading.translatesAutoresizingMaskIntoConstraints = false
         return imageDownloading
     }()
 
-    let imageContainerView: UIView = {
+    private let imageContainerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
-    let changeImage: UIButton = {
+    private let changeImage: UIButton = {
         let changeImage = UIButton()
         changeImage.setTitle("Нажми меня", for: .normal)
         changeImage.setTitleColor(.white, for: .normal)
@@ -40,7 +49,7 @@ class GreetingsURLView: UIView {
         return changeImage
     }()
 
-    let notFoundLabel: UILabel = {
+    private let notFoundLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .black
@@ -113,12 +122,12 @@ class GreetingsURLView: UIView {
         imageView.image = image
     }
 
-    func showSpinner() {
-        spinner.startAnimating()
-    }
-
-    func hideSpinner() {
-        spinner.stopAnimating()
+    func setSpinnerAnimating(_ animating: Bool) {
+        if animating {
+            self.spinner.startAnimating()
+        } else {
+            self.spinner.stopAnimating()
+        }
     }
 
     func showNotFoundLabel(_ show: Bool) {

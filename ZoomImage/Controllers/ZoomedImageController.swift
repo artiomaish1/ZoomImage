@@ -22,9 +22,16 @@ class ZoomedImageController: UIViewController {
         super.viewDidLoad()
 
         self.zoomedImageView.setSpinnerAnimating(true)
+        self.zoomedImageView.showNotFoundZoomdeImage(false)
         self.imageModel.getImage { [weak self] image in
+
+            if let image = image {
+                self?.zoomedImageView.setImage(image)
+            } else {
+                self?.zoomedImageView.showNotFoundZoomdeImage(true)
+            }
+
             self?.zoomedImageView.setSpinnerAnimating(false)
-            self?.zoomedImageView.setImage(image)
         }
     }
 }

@@ -3,9 +3,9 @@ import Foundation
 
 class GreetingsURLController: UIViewController {
     private var model: GreetingsModelable
-    private let greetingsUrlView: GreetingsURLView
+    private let greetingsUrlView: GreetingsURLInterective
 
-    init(model: GreetingModel, greetingsUrlView: GreetingsURLView) {
+    init(model: GreetingsModelable, greetingsUrlView: GreetingsURLInterective) {
         self.model = model
         self.greetingsUrlView = greetingsUrlView
         super.init(nibName: nil, bundle: nil)
@@ -29,15 +29,23 @@ class GreetingsURLController: UIViewController {
     }
 
     private func updateUI() {
-        greetingsUrlView.showSpinner()
+        greetingsUrlView.setSpinnerAnimating(true)
         greetingsUrlView.showNotFoundLabel(false)
 
         model.downloadImage { [weak self] image in
             guard let this = self else { return }
+
+            if let image = image {
+                this.greetingsUrlView.updateImageView(withImage: image)
+            } else {
+                this.greetingsUrlView.showNotFoundLabel(true)
+            }
+
             let greetingText = this.model.currentGreeting
             this.greetingsUrlView.updateGreetingLabel(withText: greetingText)
             this.greetingsUrlView.updateImageView(withImage: image)
-            this.greetingsUrlView.hideSpinner()
+            this.greetingsUrlView.setSpinnerAnimating(false)
+
         }
     }
 
