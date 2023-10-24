@@ -7,7 +7,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
                      [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let viewController = GreetingsURLController(model: GreetingModel(), greetingsUrlView: GreetingsURLView())
+        let viewController = LabelsURLController(model: GreetingModel(), greetingsUrlView: GreetingsURLView())
         self.window?.rootViewController = UINavigationController(rootViewController: viewController)
         self.window?.makeKeyAndVisible()
 

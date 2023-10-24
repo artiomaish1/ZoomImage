@@ -1,16 +1,16 @@
 import UIKit
 import Foundation
 
-protocol GreetingsURLInterective: UIView {
+protocol LabelsURLInterective: UIView {
     func setSpinnerAnimating(_ animating: Bool)
     func updateImageView(withImage image: UIImage?)
     func configureChangeImageTarget(target: Any, action: Selector)
     func configureImageContainerGestureRecognizer(target: Any, action: Selector)
     func showNotFoundLabel(_ show: Bool)
-    func updateGreetingLabel(withText text: String)
+    func updateLabelText(withText text: String)
 }
 
-class GreetingsURLView: UIView, GreetingsURLInterective {
+class GreetingsURLView: UIView, LabelsURLInterective {
     private let greetingLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -114,7 +114,7 @@ class GreetingsURLView: UIView, GreetingsURLInterective {
         imageContainerView.addGestureRecognizer(UITapGestureRecognizer(target: target, action: action))
     }
 
-    func updateGreetingLabel(withText text: String) {
+    func updateLabelText(withText text: String) {
         greetingLabel.text = text
     }
 

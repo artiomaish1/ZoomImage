@@ -1,16 +1,16 @@
 import Foundation
 import UIKit
 
-protocol GreetingsModelable {
-    var currentGreeting: String { get }
+protocol LabelsURLsDownloadable {
+    var currentLabel: String { get }
     var currentImageUrl: URL { get }
-    mutating func nextGreetingURL()
+    mutating func nextLabelURL()
     func downloadImage(completion: @escaping (UIImage?) -> Void)
 }
 
-struct GreetingModel: GreetingsModelable {
+struct GreetingModel: LabelsURLsDownloadable {
 
-    private let greetings: [String] = ["Привет", "Hello", "Bonjour", "Hola", "Ciao"]
+    private let label: [String] = ["Привет", "Hello", "Bonjour", "Hola", "Ciao"]
     private let imageUrls: [URL] = [
         URL(string: "https://images2.alphacoders.com/576/576627.jpg")!,
         URL(string: "https://wallpaperaccess.com/full/7316.jpg")!,
@@ -19,16 +19,16 @@ struct GreetingModel: GreetingsModelable {
     private var currentIndex: Int = 0
     private var currentImageIndex: Int = 0
 
-    var currentGreeting: String {
-        return greetings[currentIndex]
+    var currentLabel: String {
+        return label[currentIndex]
     }
 
     var currentImageUrl: URL {
         return imageUrls[currentImageIndex]
     }
 
-    mutating func nextGreetingURL() {
-        currentIndex = (currentIndex + 1) % greetings.count
+    mutating func nextLabelURL() {
+        currentIndex = (currentIndex + 1) % label.count
         currentImageIndex = (currentImageIndex + 1) % imageUrls.count
     }
 
@@ -42,9 +42,5 @@ struct GreetingModel: GreetingsModelable {
                 }
             }
         }.resume()
-    }
-
-    private func createImageModel() -> ImageModel {
-        return ImageModel(imageUrl: currentImageUrl)
     }
 }
