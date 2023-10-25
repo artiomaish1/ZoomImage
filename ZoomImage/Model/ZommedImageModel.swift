@@ -6,28 +6,21 @@ protocol ImageModelabel {
 }
 
 struct ImageModel: ImageModelabel {
-    private let imageUrl: URL?
-    
-    init(imageUrl: URL?) {
+    private let imageUrl: URL
+
+    init(imageUrl: URL) {
         self.imageUrl = imageUrl
     }
-    
+
     func getImage(_ completion: @escaping((UIImage?) -> Void)) {
-        if let imageUrl {
-            DispatchQueue.global().async {
-                if let imageData = try? Data(contentsOf: imageUrl), let image = UIImage(data: imageData) {
-                    DispatchQueue.main.async {
-                        completion(image)
-                    }
+        URLSession.shared.dataTask(with: URLRequest(url: imageUrl, timeoutInterval: 1.0)) { data, _, _ in
+            DispatchQueue.main.async {
+                if let data = data, let image = UIImage(data: data) {
+                    completion(image)
                 } else {
-                    DispatchQueue.main.async {
-                        completion(nil)
-                    }
+                    completion(nil)
                 }
             }
-        } else {
-            completion(nil)
-        }
+        }.resume()
     }
 }
-

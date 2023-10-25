@@ -7,25 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		923B7EB42AD449B300D20301 /* GreetingsURLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B7EB32AD449B300D20301 /* GreetingsURLModel.swift */; };
-		92D29CF82AD493E7005F0657 /* GreetingsURLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D29CF72AD493E7005F0657 /* GreetingsURLView.swift */; };
+		923B7EB42AD449B300D20301 /* LabelsURLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B7EB32AD449B300D20301 /* LabelsURLModel.swift */; };
+		92D29CF82AD493E7005F0657 /* LabelsURLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D29CF72AD493E7005F0657 /* LabelsURLView.swift */; };
 		92D29CFA2AD49589005F0657 /* ZoomedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D29CF92AD49589005F0657 /* ZoomedImageView.swift */; };
 		92D29CFF2AD49985005F0657 /* ZommedImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D29CFE2AD49985005F0657 /* ZommedImageModel.swift */; };
 		92E2B2B32AAA312400BC3982 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2B2B22AAA312400BC3982 /* AppDelegate.swift */; };
-		92E2B2B72AAA312400BC3982 /* GreetingsURLController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2B2B62AAA312400BC3982 /* GreetingsURLController.swift */; };
+		92E2B2B72AAA312400BC3982 /* LabelsURLController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2B2B62AAA312400BC3982 /* LabelsURLController.swift */; };
 		92E2B2BC2AAA312500BC3982 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92E2B2BB2AAA312500BC3982 /* Assets.xcassets */; };
 		92E2B2BF2AAA312500BC3982 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E2B2BD2AAA312500BC3982 /* LaunchScreen.storyboard */; };
 		92E2B2C92AAA317D00BC3982 /* ZoomedImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2B2C82AAA317D00BC3982 /* ZoomedImageController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		923B7EB32AD449B300D20301 /* GreetingsURLModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsURLModel.swift; sourceTree = "<group>"; };
-		92D29CF72AD493E7005F0657 /* GreetingsURLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsURLView.swift; sourceTree = "<group>"; };
+		923B7EB32AD449B300D20301 /* LabelsURLModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsURLModel.swift; sourceTree = "<group>"; };
+		92D29CF72AD493E7005F0657 /* LabelsURLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsURLView.swift; sourceTree = "<group>"; };
 		92D29CF92AD49589005F0657 /* ZoomedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedImageView.swift; sourceTree = "<group>"; };
 		92D29CFE2AD49985005F0657 /* ZommedImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZommedImageModel.swift; sourceTree = "<group>"; };
 		92E2B2AF2AAA312400BC3982 /* ZoomImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZoomImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E2B2B22AAA312400BC3982 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		92E2B2B62AAA312400BC3982 /* GreetingsURLController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsURLController.swift; sourceTree = "<group>"; };
+		92E2B2B62AAA312400BC3982 /* LabelsURLController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsURLController.swift; sourceTree = "<group>"; };
 		92E2B2BB2AAA312500BC3982 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92E2B2BE2AAA312500BC3982 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92E2B2C02AAA312500BC3982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		92D29CFB2AD49889005F0657 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				92D29CF72AD493E7005F0657 /* GreetingsURLView.swift */,
+				92D29CF72AD493E7005F0657 /* LabelsURLView.swift */,
 				92D29CF92AD49589005F0657 /* ZoomedImageView.swift */,
 			);
 			path = Views;
@@ -55,7 +55,7 @@
 		92D29CFC2AD498AC005F0657 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				923B7EB32AD449B300D20301 /* GreetingsURLModel.swift */,
+				923B7EB32AD449B300D20301 /* LabelsURLModel.swift */,
 				92D29CFE2AD49985005F0657 /* ZommedImageModel.swift */,
 			);
 			path = Model;
@@ -64,7 +64,7 @@
 		92D29CFD2AD498BB005F0657 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				92E2B2B62AAA312400BC3982 /* GreetingsURLController.swift */,
+				92E2B2B62AAA312400BC3982 /* LabelsURLController.swift */,
 				92E2B2C82AAA317D00BC3982 /* ZoomedImageController.swift */,
 			);
 			path = Controllers;
@@ -110,6 +110,7 @@
 				92E2B2AB2AAA312400BC3982 /* Sources */,
 				92E2B2AC2AAA312400BC3982 /* Frameworks */,
 				92E2B2AD2AAA312400BC3982 /* Resources */,
+				92A149E52ADF58150039750C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -127,7 +128,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					92E2B2AE2AAA312400BC3982 = {
 						CreatedOnToolsVersion = 12.4;
@@ -164,18 +165,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		92A149E52ADF58150039750C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		92E2B2AB2AAA312400BC3982 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92E2B2B72AAA312400BC3982 /* GreetingsURLController.swift in Sources */,
-				923B7EB42AD449B300D20301 /* GreetingsURLModel.swift in Sources */,
+				92E2B2B72AAA312400BC3982 /* LabelsURLController.swift in Sources */,
+				923B7EB42AD449B300D20301 /* LabelsURLModel.swift in Sources */,
 				92E2B2B32AAA312400BC3982 /* AppDelegate.swift in Sources */,
 				92E2B2C92AAA317D00BC3982 /* ZoomedImageController.swift in Sources */,
 				92D29CFA2AD49589005F0657 /* ZoomedImageView.swift in Sources */,
 				92D29CFF2AD49985005F0657 /* ZommedImageModel.swift in Sources */,
-				92D29CF82AD493E7005F0657 /* GreetingsURLView.swift in Sources */,
+				92D29CF82AD493E7005F0657 /* LabelsURLView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +251,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -291,6 +313,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
